@@ -1,4 +1,4 @@
-# 🏦 IASW — Intelligent Account Servicing Workflow
+## IASW — Intelligent Account Servicing Workflow
 
 > AI-powered banking account change request verification with mandatory Human-in-the-Loop (HITL) Checker approval before any core-banking update.
 
@@ -81,14 +81,6 @@ Enforced at the **API layer** in `POST /api/requests/{id}/decision` — not just
 | **Observability** | Structured JSONL logging | Per-step audit trail, compatible with Datadog/Splunk/Grafana Loki |
 | **Containerisation** | Docker + Docker Compose | One-command production deployment |
 
-### Why No LLM Orchestrator?
-
-The pipeline is a **fixed linear graph** — Validation → Document Processing → Confidence Scoring → Summary. There are no dynamic routing decisions that require LLM intelligence. Using a deterministic Python pipeline instead of LangGraph/CrewAI gives us:
-- Full auditability (regulators can inspect the exact execution order)
-- No LLM token cost for orchestration
-- Predictable latency
-- Zero risk of the orchestrator making a routing decision that bypasses HITL
-
 ---
 
 ## Project Structure
@@ -169,21 +161,27 @@ iasw/
 
 ---
 
-## Quick Start — Local Development
+## Setup Instructions (Clone & Run)
 
-### 1. Configure environment
+### 1. Clone the Repository
 
 ```bash
-cd C:\Users\Admin\Downloads\iasw
+git clone https://github.com/Bhanuraj23m0316iitb/Intelligent-Account-Servicing-Workflow-IASW-.git
+cd Intelligent-Account-Servicing-Workflow-IASW-
 
-# Your .env is already filled — verify it has:
-# AZURE_OPENAI_API_KEY=...
-# AZURE_OPENAI_ENDPOINT=https://humanli-openai.openai.azure.com/
-# AZURE_OPENAI_DEPLOYMENT=gpt-4o
-# AZURE_OPENAI_API_VERSION=2024-12-01-preview
+```
+### 2. Configure Environment Variables
+Configure .env file in backend folder paste the following requirements
+
+```bash
+AZURE_OPENAI_API_KEY=your_api_key
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+AZURE_OPENAI_DEPLOYMENT=gpt-4o
+AZURE_OPENAI_API_VERSION=2024-12-01-preview
+
 ```
 
-### 2. Start the backend
+### 3. Start the backend
 
 ```bash
 cd backend
@@ -202,7 +200,7 @@ uvicorn main:app --reload --port 8000
 
 Backend: **http://localhost:8000** · Swagger UI: **http://localhost:8000/docs**
 
-### 3. Start the frontend
+### 4. Start the frontend
 
 ```bash
 # New terminal
