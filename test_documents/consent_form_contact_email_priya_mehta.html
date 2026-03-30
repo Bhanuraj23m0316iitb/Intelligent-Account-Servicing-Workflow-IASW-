@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Digital Consent Form – Contact/Email Update – Priya Mehta (C001)</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#f0f4f8; font-family: Arial, sans-serif; padding:40px 20px; }
+
+    .print-instructions {
+      text-align:center; font-size:13px; color:#555; margin-bottom:14px;
+      background:#fff3cd; border:1px solid #ffc107; border-radius:6px;
+      padding:12px; max-width:820px; margin-left:auto; margin-right:auto;
+    }
+    .print-btn {
+      display:block; margin:0 auto 24px; padding:10px 36px;
+      background:#0b3d91; color:white; border:none; border-radius:4px;
+      font-size:14px; cursor:pointer; letter-spacing:1px;
+    }
+
+    .form-doc {
+      width:820px; background:white; margin:0 auto;
+      box-shadow:0 6px 28px rgba(0,0,0,0.15);
+      border-top:6px solid #0b3d91;
+    }
+
+    /* Header */
+    .form-header {
+      background:#0b3d91; color:white; padding:22px 40px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .form-header .bank-logo { display:flex; align-items:center; gap:14px; }
+    .form-header .bank-icon { font-size:38px; }
+    .form-header .bank-name { }
+    .form-header .bank-name .bn-big { font-size:20px; font-weight:900; letter-spacing:1px; }
+    .form-header .bank-name .bn-small { font-size:10px; letter-spacing:2px; opacity:0.8; margin-top:2px; }
+    .form-header .form-ref { text-align:right; }
+    .form-header .form-ref .fr-label { font-size:9px; letter-spacing:2px; opacity:0.7; text-transform:uppercase; }
+    .form-header .form-ref .fr-value { font-size:13px; font-weight:700; margin-top:2px; font-family:'Courier New', monospace; }
+
+    /* Form title */
+    .form-title-bar {
+      background:#e8eef8; border-bottom:2px solid #c5d3ea;
+      padding:14px 40px; display:flex; align-items:center; justify-content:space-between;
+    }
+    .form-title-bar h1 { font-size:18px; font-weight:700; color:#0b3d91; letter-spacing:0.5px; }
+    .form-title-bar .branch-info { font-size:12px; color:#666; text-align:right; line-height:1.6; }
+
+    /* Body */
+    .form-body { padding:30px 40px; }
+
+    /* Section heading */
+    .section-heading {
+      font-size:11px; font-weight:700; color:#0b3d91;
+      text-transform:uppercase; letter-spacing:2px;
+      border-bottom:2px solid #0b3d91; padding-bottom:5px;
+      margin-bottom:16px; margin-top:24px;
+    }
+    .section-heading:first-child { margin-top:0; }
+
+    /* Two column grid */
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .form-grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+
+    /* Field */
+    .field { margin-bottom:4px; }
+    .field .f-label { font-size:10px; color:#888; text-transform:uppercase; letter-spacing:1px; font-weight:700; margin-bottom:4px; }
+    .field .f-input {
+      border-bottom:2px solid #0b3d91; padding:6px 2px;
+      font-size:14px; font-weight:600; color:#111; min-height:28px;
+      background:transparent;
+    }
+    .field .f-input.highlight { color:#0b3d91; font-size:15px; }
+
+    /* Change block */
+    .change-block {
+      background:#e8eef8; border:2px solid #0b3d91; border-radius:6px;
+      padding:18px 24px; margin:18px 0;
+    }
+    .change-block h3 { font-size:11px; color:#0b3d91; text-transform:uppercase; letter-spacing:2px; font-weight:700; margin-bottom:14px; }
+    .change-row { display:flex; align-items:center; gap:16px; }
+    .change-row .cr-item { flex:1; }
+    .change-row .cr-item .cri-label { font-size:9px; color:#888; text-transform:uppercase; letter-spacing:1px; font-weight:700; }
+    .change-row .cr-item .cri-value { font-size:16px; font-weight:700; color:#111; margin-top:4px; border-bottom:1px solid #999; padding-bottom:4px; }
+    .change-row .cr-item .cri-value.new { color:#0b3d91; }
+    .change-row .arrow { font-size:28px; color:#0b3d91; flex:0; }
+
+    /* Consent text */
+    .consent-text-box {
+      background:#f7f9fc; border:1px solid #c5d3ea; border-radius:4px;
+      padding:16px 20px; margin:18px 0; font-size:12.5px; line-height:1.8; color:#333;
+    }
+    .consent-text-box ol { padding-left:20px; margin-top:8px; }
+    .consent-text-box ol li { margin-bottom:6px; }
+
+    /* Declarations */
+    .declaration-row { display:flex; gap:12px; align-items:flex-start; margin:10px 0; }
+    .declaration-row .checkbox {
+      width:16px; height:16px; border:2px solid #0b3d91; border-radius:3px;
+      flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center;
+      font-size:12px; color:#0b3d91; font-weight:700;
+    }
+    .declaration-row .decl-text { font-size:12.5px; color:#333; line-height:1.6; }
+
+    /* Signature section */
+    .sig-section {
+      background:#f7f9fc; border:1px solid #c5d3ea; border-radius:6px;
+      padding:20px 24px; margin-top:24px;
+    }
+    .sig-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-top:16px; }
+    .sig-box { }
+    .sig-box .sb-label { font-size:9px; color:#888; text-transform:uppercase; letter-spacing:1.5px; font-weight:700; margin-bottom:8px; }
+    .sig-box .sb-sign {
+      border:2px dashed #0b3d91; border-radius:4px; height:70px;
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Brush Script MT', cursive; font-size:28px; color:#0b3d91;
+      background:white;
+    }
+    .sig-box .sb-name-line { border-bottom:1px solid #888; margin-top:8px; padding-bottom:4px; }
+    .sig-box .sb-name { font-size:13px; font-weight:700; color:#111; margin-top:5px; }
+    .sig-box .sb-detail { font-size:10px; color:#888; margin-top:2px; }
+
+    /* OTP / Verification box */
+    .otp-box {
+      background:#fff8e1; border:2px solid #ffc107; border-radius:6px;
+      padding:14px 20px; margin:20px 0; display:flex; align-items:center; gap:16px;
+    }
+    .otp-box .ob-icon { font-size:28px; }
+    .otp-box .ob-text { flex:1; }
+    .otp-box .ob-text .ot-label { font-size:10px; color:#888; text-transform:uppercase; letter-spacing:1px; font-weight:700; }
+    .otp-box .ob-text .ot-value { font-size:22px; font-weight:900; color:#d68000; font-family:'Courier New', monospace; letter-spacing:8px; margin-top:3px; }
+    .otp-box .ob-status { text-align:right; }
+    .otp-box .ob-status .os-badge {
+      background:#4caf50; color:white; padding:4px 10px;
+      border-radius:20px; font-size:11px; font-weight:700;
+    }
+    .otp-box .ob-status .os-time { font-size:10px; color:#888; margin-top:4px; }
+
+    /* Stamp */
+    .bank-stamp {
+      margin:20px 0 0 auto; width:130px; border:3px solid #0b3d91;
+      padding:8px 12px; color:#0b3d91; text-align:center;
+      transform:rotate(-4deg); opacity:0.7;
+    }
+    .bank-stamp .bs-title { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+    .bank-stamp .bs-date { font-family:'Courier New', monospace; font-size:12px; font-weight:bold; margin-top:3px; }
+    .bank-stamp .bs-branch { font-size:8px; margin-top:2px; }
+
+    /* Footer */
+    .form-footer {
+      background:#0b3d91; color:rgba(255,255,255,0.7);
+      padding:12px 40px; font-size:10px; text-align:center; line-height:1.8;
+    }
+
+    @media print {
+      body{background:white;padding:0;}
+      .print-btn,.print-instructions{display:none;}
+      .form-doc{box-shadow:none;width:100%;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-instructions">
+  <strong>📄 Save as PDF:</strong> Ctrl+P → <strong>"Save as PDF"</strong> → Upload to IASW app<br/>
+  Use for: <strong>C001 · Priya Mehta · Contact/Email Update · priya.sharma@email.com → priya.mehta@email.com</strong>
+</div>
+<button class="print-btn" onclick="window.print()">🖨️ Save as PDF (Ctrl+P)</button>
+
+<div class="form-doc">
+
+  <!-- Header -->
+  <div class="form-header">
+    <div class="bank-logo">
+      <div class="bank-icon">🏦</div>
+      <div class="bank-name">
+        <div class="bn-big">NATIONAL BANK OF INDIA</div>
+        <div class="bn-small">TRUSTED BANKING SINCE 1934</div>
+      </div>
+    </div>
+    <div class="form-ref">
+      <div class="fr-label">Form Reference</div>
+      <div class="fr-value">NBI/DCF/2024/C001/0089</div>
+    </div>
+  </div>
+
+  <!-- Title Bar -->
+  <div class="form-title-bar">
+    <h1>📋 Digital Consent Form — Contact / Email Update</h1>
+    <div class="branch-info">
+      Branch: Bandra (W), Mumbai – 400050<br/>
+      Date: 15 March 2024
+    </div>
+  </div>
+
+  <div class="form-body">
+
+    <!-- Section 1: Account Holder Details -->
+    <div class="section-heading">1. Account Holder Details</div>
+    <div class="form-grid">
+      <div class="field">
+        <div class="f-label">Full Name</div>
+        <div class="f-input highlight">Priya Mehta</div>
+      </div>
+      <div class="field">
+        <div class="f-label">Customer ID</div>
+        <div class="f-input highlight">C001</div>
+      </div>
+      <div class="field">
+        <div class="f-label">Account Number</div>
+        <div class="f-input">ACC001234567</div>
+      </div>
+      <div class="field">
+        <div class="f-label">Date of Birth</div>
+        <div class="f-input">15 / 05 / 1990</div>
+      </div>
+      <div class="field">
+        <div class="f-label">PAN Number</div>
+        <div class="f-input">ABCPM 6791 H</div>
+      </div>
+      <div class="field">
+        <div class="f-label">Aadhaar (Last 4 digits)</div>
+        <div class="f-input">**** **** 7842</div>
+      </div>
+    </div>
+
+    <!-- Section 2: Contact Change Request -->
+    <div class="section-heading">2. Contact / Email Change Request</div>
+    <div class="change-block">
+      <h3>Email Address Update</h3>
+      <div class="change-row">
+        <div class="cr-item">
+          <div class="cri-label">Current Email (Old Email)</div>
+          <div class="cri-value">priya.sharma@email.com</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="cr-item">
+          <div class="cri-label">New Email Address</div>
+          <div class="cri-value new">priya.mehta@email.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="change-block" style="margin-top:-8px; background:#f0f4ff; border-color:#6699cc;">
+      <h3>Mobile Number (No change requested)</h3>
+      <div class="change-row">
+        <div class="cr-item">
+          <div class="cri-label">Registered Mobile</div>
+          <div class="cri-value">+91-9876543210</div>
+        </div>
+        <div class="cr-item">
+          <div class="cri-label">Reason for Email Update</div>
+          <div class="cri-value" style="font-size:13px;">Name change post-marriage (Sharma → Mehta)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: OTP Verification -->
+    <div class="section-heading">3. OTP Verification (Registered Mobile)</div>
+    <div class="otp-box">
+      <div class="ob-icon">📱</div>
+      <div class="ob-text">
+        <div class="ot-label">One-Time Password sent to +91-9876543210</div>
+        <div class="ot-value">8 4 7 2 3 1</div>
+      </div>
+      <div class="ob-status">
+        <div class="os-badge">✓ VERIFIED</div>
+        <div class="os-time">15 Mar 2024 · 14:32 IST</div>
+      </div>
+    </div>
+
+    <!-- Section 4: Consent Declarations -->
+    <div class="section-heading">4. Customer Declaration & Consent</div>
+    <div class="consent-text-box">
+      I, <strong>Priya Mehta</strong>, holder of Account No. <strong>ACC001234567</strong> with
+      National Bank of India, hereby give my informed consent for the following:
+      <ol>
+        <li>I request the Bank to update my registered email address from
+            <strong>priya.sharma@email.com</strong> to <strong>priya.mehta@email.com</strong>
+            with immediate effect.</li>
+        <li>I confirm that the new email address provided above belongs to me and
+            I have full access to it.</li>
+        <li>I understand that all future communications, alerts, and statements from
+            the Bank will be sent to the new email address.</li>
+        <li>I accept full responsibility for any consequences arising from this change.</li>
+        <li>I confirm that this request is made voluntarily and without any coercion.</li>
+      </ol>
+    </div>
+
+    <div class="declaration-row">
+      <div class="checkbox">✓</div>
+      <div class="decl-text">I have read and understood all terms and conditions of this consent form.</div>
+    </div>
+    <div class="declaration-row">
+      <div class="checkbox">✓</div>
+      <div class="decl-text">I confirm that the information provided is true and correct to the best of my knowledge.</div>
+    </div>
+    <div class="declaration-row">
+      <div class="checkbox">✓</div>
+      <div class="decl-text">I agree to the Bank's Privacy Policy and data usage terms for the purpose of this update.</div>
+    </div>
+
+    <!-- Section 5: Signatures -->
+    <div class="section-heading">5. Signatures</div>
+    <div class="sig-section">
+      <div style="font-size:12px;color:#666;margin-bottom:4px;">
+        Signed in the presence of Bank official at Branch: Bandra (W), Mumbai · Date: 15 March 2024
+      </div>
+      <div class="sig-grid">
+        <div class="sig-box">
+          <div class="sb-label">Customer Signature</div>
+          <div class="sb-sign">Priya Mehta</div>
+          <div class="sb-name-line"></div>
+          <div class="sb-name">Priya Mehta</div>
+          <div class="sb-detail">Account Holder · C001</div>
+        </div>
+        <div class="sig-box">
+          <div class="sb-label">Bank Official Signature</div>
+          <div class="sb-sign">R. D. Sharma</div>
+          <div class="sb-name-line"></div>
+          <div class="sb-name">R. D. Sharma</div>
+          <div class="sb-detail">Relationship Manager · NBI Bandra</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bank Stamp -->
+    <div style="display:flex; justify-content:flex-end; margin-top:16px;">
+      <div class="bank-stamp">
+        <div class="bs-title">NBI · RECEIVED</div>
+        <div class="bs-date">15-MAR-2024</div>
+        <div class="bs-branch">Bandra (W) Branch</div>
+      </div>
+    </div>
+
+  </div><!-- /form-body -->
+
+  <div class="form-footer">
+    National Bank of India · Registered Office: 16 Sansad Marg, New Delhi – 110 001 ·
+    IFSC: NBIN0001234 · Helpline: 1800-103-1906 (Toll Free) ·
+    This is a computer-generated form. Valid without signature of issuing authority.
+  </div>
+</div>
+
+</body>
+</html>

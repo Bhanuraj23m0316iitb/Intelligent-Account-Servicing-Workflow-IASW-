@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>IASW — Complete Test Guide</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background:#f0f4f8; padding:30px 20px; }
+    h1 { font-size:26px; font-weight:800; color:#0b3d91; text-align:center; margin-bottom:6px; }
+    .subtitle { text-align:center; color:#666; font-size:14px; margin-bottom:30px; }
+
+    .card {
+      background:white; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.1);
+      margin-bottom:20px; overflow:hidden; border-left:5px solid #ccc;
+    }
+    .card.tc1 { border-left-color:#1a7a4a; }
+    .card.tc2 { border-left-color:#0b3d91; }
+    .card.tc3 { border-left-color:#7b4f00; }
+    .card.tc4 { border-left-color:#6a0d91; }
+
+    .card-header {
+      padding:16px 24px 14px; display:flex; align-items:center; gap:14px;
+    }
+    .card.tc1 .card-header { background:#e8f5ee; }
+    .card.tc2 .card-header { background:#e8eef8; }
+    .card.tc3 .card-header { background:#fdf3e0; }
+    .card.tc4 .card-header { background:#f3e8f8; }
+
+    .tc-number {
+      width:40px; height:40px; border-radius:50%; color:white;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; font-weight:900; flex-shrink:0;
+    }
+    .tc1 .tc-number { background:#1a7a4a; }
+    .tc2 .tc-number { background:#0b3d91; }
+    .tc3 .tc-number { background:#7b4f00; }
+    .tc4 .tc-number { background:#6a0d91; }
+
+    .card-header .ch-info {}
+    .card-header .ch-info h2 { font-size:17px; font-weight:800; color:#111; }
+    .card-header .ch-info .ch-tag { font-size:12px; color:#888; margin-top:2px; }
+
+    .card-header .ch-badge {
+      margin-left:auto; padding:5px 12px; border-radius:20px;
+      font-size:11px; font-weight:700; letter-spacing:1px;
+    }
+    .tc1 .ch-badge { background:#d4edda; color:#155724; }
+    .tc2 .ch-badge { background:#d0e4ff; color:#003580; }
+    .tc3 .ch-badge { background:#fde8c0; color:#7b4f00; }
+    .tc4 .ch-badge { background:#ead5f8; color:#6a0d91; }
+
+    .card-body { padding:16px 24px 20px; }
+
+    .fields-table { width:100%; border-collapse:collapse; margin-bottom:14px; }
+    .fields-table th {
+      background:#f7f9fc; font-size:10px; text-transform:uppercase;
+      letter-spacing:1.5px; color:#888; font-weight:700; padding:8px 12px;
+      text-align:left; border-bottom:2px solid #e8eef8;
+    }
+    .fields-table td { padding:10px 12px; font-size:13.5px; border-bottom:1px solid #f0f4f8; }
+    .fields-table tr:last-child td { border-bottom:none; }
+    .fields-table .key-field { font-weight:600; color:#111; }
+    .fields-table .key-value { font-family:'Courier New', monospace; color:#0b3d91; font-weight:700; }
+    .fields-table .label-cell { color:#666; font-size:12px; }
+
+    .doc-ref {
+      background:#f7f9fc; border:1px solid #e0e6f0; border-radius:6px;
+      padding:10px 14px; display:flex; align-items:center; gap:10px; margin-top:8px;
+    }
+    .doc-ref .dr-icon { font-size:22px; }
+    .doc-ref .dr-text {}
+    .doc-ref .dr-text .drt-label { font-size:10px; color:#888; text-transform:uppercase; letter-spacing:1px; font-weight:700; }
+    .doc-ref .dr-text .drt-file { font-size:13px; font-weight:600; color:#0b3d91; margin-top:2px; }
+    .doc-ref .dr-text .drt-note { font-size:11px; color:#888; margin-top:2px; }
+
+    .expected {
+      background:#f0fff4; border:1px solid #9de0b5; border-radius:6px;
+      padding:10px 14px; margin-top:10px;
+    }
+    .expected .ex-label { font-size:10px; color:#1a7a4a; text-transform:uppercase; letter-spacing:1px; font-weight:700; margin-bottom:5px; }
+    .expected .ex-row { display:flex; gap:8px; flex-wrap:wrap; }
+    .expected .ex-pill {
+      background:#d4edda; color:#155724; padding:3px 10px;
+      border-radius:12px; font-size:11px; font-weight:600;
+    }
+
+    .steps-box { background:#fff8e1; border:1px solid #ffc107; border-radius:6px; padding:14px 18px; }
+    .steps-box h3 { font-size:11px; color:#996600; text-transform:uppercase; letter-spacing:1px; font-weight:700; margin-bottom:8px; }
+    .steps-box ol { padding-left:18px; }
+    .steps-box ol li { font-size:13px; color:#333; margin-bottom:5px; line-height:1.5; }
+    .steps-box ol li code { background:#f0f0f0; padding:1px 5px; border-radius:3px; font-family:'Courier New', monospace; font-size:12px; color:#c00; }
+
+    .section-title {
+      font-size:13px; font-weight:700; color:#333; margin-bottom:14px;
+      text-transform:uppercase; letter-spacing:1px; padding-bottom:6px;
+      border-bottom:1px dashed #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🧪 IASW — Complete Test Guide</h1>
+<div class="subtitle">4 test cases · All 3 customers · All 4 change types · Save each HTML as PDF → Upload</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--  TEST CASE 1 — Legal Name Change                           -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="card tc1">
+  <div class="card-header">
+    <div class="tc-number">1</div>
+    <div class="ch-info">
+      <h2>Legal Name Change</h2>
+      <div class="ch-tag">Document: Marriage Certificate · Customer C001 · Priya Sharma</div>
+    </div>
+    <div class="ch-badge">✅ HIGH CONFIDENCE</div>
+  </div>
+  <div class="card-body">
+    <div class="section-title">Intake Form Values</div>
+    <table class="fields-table">
+      <thead><tr><th>Field</th><th>Value to Enter</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="label-cell">Customer</td><td class="key-field">C001 — Priya Sharma</td><td class="label-cell">Select from list</td></tr>
+        <tr><td class="label-cell">Change Type</td><td class="key-value">Legal Name Change</td><td class="label-cell">—</td></tr>
+        <tr><td class="label-cell">Current Value</td><td class="key-value">Priya Sharma</td><td class="label-cell">⚠️ Must match RPS exactly</td></tr>
+        <tr><td class="label-cell">New Value</td><td class="key-value">Priya Mehta</td><td class="label-cell">Post-marriage name</td></tr>
+        <tr><td class="label-cell">Staff ID</td><td class="key-value">STAFF001</td><td class="label-cell">Any value works</td></tr>
+        <tr><td class="label-cell">Document</td><td class="key-field">marriage_certificate_priya_sharma.pdf</td><td class="label-cell">Save HTML → PDF first</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-ref">
+      <div class="dr-icon">📄</div>
+      <div class="dr-text">
+        <div class="drt-label">Test Document File</div>
+        <div class="drt-file">test_documents/marriage_certificate_priya_sharma.html</div>
+        <div class="drt-note">Open in Chrome → Ctrl+P → Save as PDF → Upload that PDF</div>
+      </div>
+    </div>
+
+    <div class="expected">
+      <div class="ex-label">Expected AI Result</div>
+      <div class="ex-row">
+        <span class="ex-pill">Old Name: Priya Sharma ✓</span>
+        <span class="ex-pill">New Name: Priya Mehta ✓</span>
+        <span class="ex-pill">Confidence: ~90–97%</span>
+        <span class="ex-pill">Forgery: None</span>
+        <span class="ex-pill">Action: APPROVE</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--  TEST CASE 2 — Address Update                              -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="card tc2">
+  <div class="card-header">
+    <div class="tc-number">2</div>
+    <div class="ch-info">
+      <h2>Address Update</h2>
+      <div class="ch-tag">Document: Electricity Utility Bill · Customer C002 · Arjun Verma</div>
+    </div>
+    <div class="ch-badge">✅ HIGH CONFIDENCE</div>
+  </div>
+  <div class="card-body">
+    <div class="section-title">Intake Form Values</div>
+    <table class="fields-table">
+      <thead><tr><th>Field</th><th>Value to Enter</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="label-cell">Customer</td><td class="key-field">C002 — Arjun Verma</td><td class="label-cell">Select from list</td></tr>
+        <tr><td class="label-cell">Change Type</td><td class="key-value">Address Update</td><td class="label-cell">—</td></tr>
+        <tr><td class="label-cell">Current Value</td><td class="key-value">45 Park Street, Kolkata 700016</td><td class="label-cell">⚠️ Must match RPS exactly</td></tr>
+        <tr><td class="label-cell">New Value</td><td class="key-value">78 Camac Street, Kolkata 700017</td><td class="label-cell">New address</td></tr>
+        <tr><td class="label-cell">Staff ID</td><td class="key-value">STAFF002</td><td class="label-cell">Any value works</td></tr>
+        <tr><td class="label-cell">Document</td><td class="key-field">utility_bill_arjun_verma.pdf</td><td class="label-cell">Save HTML → PDF first</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-ref">
+      <div class="dr-icon">📄</div>
+      <div class="dr-text">
+        <div class="drt-label">Test Document File</div>
+        <div class="drt-file">test_documents/utility_bill_arjun_verma.html</div>
+        <div class="drt-note">Open in Chrome → Ctrl+P → Save as PDF → Upload that PDF</div>
+      </div>
+    </div>
+
+    <div class="expected">
+      <div class="ex-label">Expected AI Result</div>
+      <div class="ex-row">
+        <span class="ex-pill">Address Extracted ✓</span>
+        <span class="ex-pill">Name: Arjun Verma ✓</span>
+        <span class="ex-pill">Confidence: ~75–85%</span>
+        <span class="ex-pill">Forgery: None</span>
+        <span class="ex-pill">Action: APPROVE / REVIEW</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--  TEST CASE 3 — Date of Birth Correction                    -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="card tc3">
+  <div class="card-header">
+    <div class="tc-number">3</div>
+    <div class="ch-info">
+      <h2>Date of Birth Correction</h2>
+      <div class="ch-tag">Document: PAN Card + Birth Certificate · Customer C003 · Sunita Patel</div>
+    </div>
+    <div class="ch-badge">✅ HIGH CONFIDENCE</div>
+  </div>
+  <div class="card-body">
+    <div class="section-title">Intake Form Values</div>
+    <table class="fields-table">
+      <thead><tr><th>Field</th><th>Value to Enter</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="label-cell">Customer</td><td class="key-field">C003 — Sunita Patel</td><td class="label-cell">Select from list</td></tr>
+        <tr><td class="label-cell">Change Type</td><td class="key-value">Date of Birth</td><td class="label-cell">—</td></tr>
+        <tr><td class="label-cell">Current Value</td><td class="key-value">1992-03-08</td><td class="label-cell">⚠️ Must match RPS exactly</td></tr>
+        <tr><td class="label-cell">New Value</td><td class="key-value">1992-03-09</td><td class="label-cell">Corrected DOB from birth cert</td></tr>
+        <tr><td class="label-cell">Staff ID</td><td class="key-value">STAFF003</td><td class="label-cell">Any value works</td></tr>
+        <tr><td class="label-cell">Document</td><td class="key-field">dob_pan_birth_cert_sunita_patel.pdf</td><td class="label-cell">Save HTML → PDF first</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-ref">
+      <div class="dr-icon">📄</div>
+      <div class="dr-text">
+        <div class="drt-label">Test Document File</div>
+        <div class="drt-file">test_documents/dob_pan_birth_cert_sunita_patel.html</div>
+        <div class="drt-note">Contains both PAN Card + Birth Certificate on one page. Open → Ctrl+P → Save as PDF</div>
+      </div>
+    </div>
+
+    <div class="expected">
+      <div class="ex-label">Expected AI Result</div>
+      <div class="ex-row">
+        <span class="ex-pill">DOB Extracted: 1992-03-09 ✓</span>
+        <span class="ex-pill">Name: Sunita Patel ✓</span>
+        <span class="ex-pill">Confidence: ~85–92%</span>
+        <span class="ex-pill">Forgery: None</span>
+        <span class="ex-pill">Action: APPROVE</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--  TEST CASE 4 — Contact / Email Update                      -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="card tc4">
+  <div class="card-header">
+    <div class="tc-number">4</div>
+    <div class="ch-info">
+      <h2>Contact / Email Update</h2>
+      <div class="ch-tag">Document: Digital Consent Form · Customer C001 · Priya Mehta (after name change)</div>
+    </div>
+    <div class="ch-badge">✅ HIGH CONFIDENCE</div>
+  </div>
+  <div class="card-body">
+    <div class="section-title">Intake Form Values</div>
+    <table class="fields-table">
+      <thead><tr><th>Field</th><th>Value to Enter</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="label-cell">Customer</td><td class="key-field">C001 — Priya Sharma</td><td class="label-cell">Select from list</td></tr>
+        <tr><td class="label-cell">Change Type</td><td class="key-value">Contact / Email</td><td class="label-cell">—</td></tr>
+        <tr><td class="label-cell">Current Value</td><td class="key-value">priya.sharma@email.com</td><td class="label-cell">⚠️ Must match RPS exactly</td></tr>
+        <tr><td class="label-cell">New Value</td><td class="key-value">priya.mehta@email.com</td><td class="label-cell">New email after marriage</td></tr>
+        <tr><td class="label-cell">Staff ID</td><td class="key-value">STAFF001</td><td class="label-cell">Any value works</td></tr>
+        <tr><td class="label-cell">Document</td><td class="key-field">consent_form_contact_email_priya_mehta.pdf</td><td class="label-cell">Save HTML → PDF first</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-ref">
+      <div class="dr-icon">📄</div>
+      <div class="dr-text">
+        <div class="drt-label">Test Document File</div>
+        <div class="drt-file">test_documents/consent_form_contact_email_priya_mehta.html</div>
+        <div class="drt-note">Digital bank consent form with OTP verification + customer signature. Open → Ctrl+P → Save as PDF</div>
+      </div>
+    </div>
+
+    <div class="expected">
+      <div class="ex-label">Expected AI Result</div>
+      <div class="ex-row">
+        <span class="ex-pill">New Email: priya.mehta@email.com ✓</span>
+        <span class="ex-pill">Signature: Present ✓</span>
+        <span class="ex-pill">OTP: Verified ✓</span>
+        <span class="ex-pill">Confidence: ~88–95%</span>
+        <span class="ex-pill">Action: APPROVE</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!--  HOW TO RUN                                                 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div style="background:white;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.1);padding:24px 28px;margin-bottom:20px;">
+  <div style="font-size:16px;font-weight:800;color:#333;margin-bottom:16px;">📋 Step-by-Step: How to Run Each Test</div>
+
+  <div class="steps-box">
+    <h3>For Every Test Case — Same 5 Steps</h3>
+    <ol>
+      <li>Open the <strong>.html file</strong> from <code>test_documents/</code> in <strong>Chrome</strong></li>
+      <li>Press <strong>Ctrl+P</strong> → Change printer to <strong>"Save as PDF"</strong> → Click <strong>Save</strong></li>
+      <li>Go to <strong>http://localhost:3000/intake</strong> and fill in the form values from the table above</li>
+      <li>Upload the saved <strong>PDF</strong> in Step 3 of the intake wizard</li>
+      <li>Click <strong>Submit for AI Verification</strong> → Wait ~5-10s → Review results → <strong>Approve or Reject</strong></li>
+    </ol>
+  </div>
+
+  <div style="margin-top:16px;padding:12px 16px;background:#e8f4fd;border-radius:6px;font-size:13px;color:#0b3d91;border-left:4px solid #0b3d91;">
+    <strong>💡 Screenshot trick (no PDF needed):</strong>
+    Open HTML in Chrome → F12 → Toggle device toolbar → Set width 860 →
+    Right-click page → <strong>Capture screenshot</strong> → Upload the PNG directly.
+    The app accepts PNG images too!
+  </div>
+</div>
+
+<!-- Checker info -->
+<div style="background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:18px 24px;text-align:center;margin-bottom:10px;">
+  <div style="font-size:15px;font-weight:700;color:#856404;margin-bottom:4px;">🔒 Checker Approval — Same for All Tests</div>
+  <div style="font-size:13px;color:#666;">
+    After AI pipeline completes → Go to Checker Review page →
+    Enter Checker ID: <strong>CHECKER001</strong> →
+    Click <strong>Approve</strong> → Confirm → Done!
+  </div>
+</div>
+
+</body>
+</html>

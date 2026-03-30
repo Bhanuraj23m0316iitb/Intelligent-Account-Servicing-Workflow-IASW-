@@ -1,0 +1,50 @@
+# ═══════════════════════════════════════════════════════════════
+#  IASW — Test Documents Quick Reference
+# ═══════════════════════════════════════════════════════════════
+#
+#  All test documents are in: iasw/test_documents/
+#  Open each HTML file in Chrome → Ctrl+P → Save as PDF
+#  Then upload the PDF (or screenshot) to the IASW intake form.
+#
+# ───────────────────────────────────────────────────────────────
+#  TEST CASE 1 — Legal Name Change (PRIMARY DEMO)
+#  Document: marriage_certificate_priya_sharma.html
+# ───────────────────────────────────────────────────────────────
+#  Intake form values:
+#    Customer          : C001
+#    Change Type       : Legal Name Change
+#    Current Value     : Priya Sharma        ← must match exactly
+#    New Value         : Priya Mehta
+#    Staff ID          : STAFF001
+#
+#  What the AI will extract:
+#    old_name          → Priya Sharma
+#    new_name          → Priya Mehta
+#    issuing_authority → Sub-Registrar, Mumbai
+#    document_date     → 20th February, 2024
+#    registration_number → MUM/MH/2024/LN/004821
+#    Expected confidence → ~90–97%
+#    Expected action   → APPROVE
+#
+# ───────────────────────────────────────────────────────────────
+#  TEST CASE 2 — Address Update
+#  Document: utility_bill_arjun_verma.html
+# ───────────────────────────────────────────────────────────────
+#  Intake form values:
+#    Customer          : C002
+#    Change Type       : Address Update
+#    Current Value     : 45 Park Street, Kolkata 700016
+#    New Value         : 45 Park Street, Kolkata 700016
+#    (same value used to demo the "no change" validation error)
+#
+#    OR use a different new address to test successful flow:
+#    New Value         : 78 Camac Street, Kolkata 700017
+#
+# ───────────────────────────────────────────────────────────────
+#  QUICK SCREENSHOT TRICK (no PDF needed):
+#  If you don't want to print to PDF, you can also:
+#    1. Open the HTML file in Chrome
+#    2. Press F12 → toggle device toolbar → set width 860
+#    3. Right-click → "Capture screenshot"
+#    4. Upload the PNG directly — the app accepts PNG too!
+# ───────────────────────────────────────────────────────────────

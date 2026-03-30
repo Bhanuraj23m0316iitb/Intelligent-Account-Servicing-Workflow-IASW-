@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>PAN Card – Rahul Gupta</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#e8ecf0; font-family: Arial, sans-serif; padding:40px 20px; }
+
+    .print-btn {
+      display:block; margin:0 auto 24px; padding:10px 36px;
+      background:#154360; color:white; border:none; border-radius:4px;
+      font-size:14px; cursor:pointer;
+    }
+
+    .pan-card {
+      width:480px; height:300px; margin:0 auto 40px;
+      background: linear-gradient(135deg, #ffffff 0%, #f5f8ff 100%);
+      border-radius:14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+      overflow:hidden;
+    }
+
+    .pan-top-bar {
+      background: linear-gradient(90deg, #154360 0%, #1a5276 60%, #1f618d 100%);
+      height:56px; display:flex; align-items:center; padding:0 18px;
+      color:white;
+    }
+
+    .pan-body { display:flex; padding:14px 18px; gap:14px; }
+
+    .pan-photo {
+      width:72px; height:86px; background:#dce8f5;
+      border:2px solid #154360; display:flex; align-items:center;
+      justify-content:center; font-size:32px;
+    }
+
+    .pan-row { margin-bottom:7px; }
+    .pr-label { font-size:8px; color:#888; }
+    .pr-value { font-size:14px; font-weight:700; }
+
+    .pan-number-bar {
+      background:#154360; color:white; text-align:center;
+      padding:7px; margin:10px 18px 0;
+      font-family:'Courier New'; font-size:18px;
+      letter-spacing:5px;
+    }
+
+    .birth-cert {
+      width:760px; margin:0 auto;
+      background:#fffef8;
+      border:4px solid #d4a017;
+      padding:30px;
+    }
+
+    .bc-title {
+      text-align:center;
+      font-size:24px;
+      margin-bottom:20px;
+    }
+
+    .dob-highlight {
+      background:#fdf3e7;
+      border:2px solid #d4a017;
+      padding:16px;
+      display:flex;
+      justify-content:space-around;
+      margin:20px 0;
+    }
+
+    @media print {
+      body{background:white;}
+      .print-btn{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Save as PDF</button>
+
+<!-- PAN CARD -->
+<div class="pan-card">
+  <div class="pan-top-bar">
+    Income Tax Department - Government of India
+  </div>
+
+  <div class="pan-body">
+    <div class="pan-photo">👤</div>
+    <div>
+      <div class="pan-row">
+        <div class="pr-label">Name</div>
+        <div class="pr-value">RAHUL GUPTA</div>
+      </div>
+      <div class="pan-row">
+        <div class="pr-label">Father's Name</div>
+        <div class="pr-value">RAMESH GUPTA</div>
+      </div>
+      <div class="pan-row">
+        <div class="pr-label">Date of Birth</div>
+        <div class="pr-value">18/07/1998</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pan-number-bar">ACCGP1234K</div>
+</div>
+
+<!-- BIRTH CERTIFICATE -->
+<div class="birth-cert">
+  <div class="bc-title">Certificate of Birth</div>
+
+  <div style="text-align:center; margin-bottom:10px;">
+    Government of India
+  </div>
+
+  <div class="dob-highlight">
+    <div>
+      <div style="font-size:12px;">Full Name</div>
+      <div style="font-size:18px; font-weight:bold;">Rahul Gupta</div>
+    </div>
+
+    <div>
+      <div style="font-size:12px;">Date of Birth</div>
+      <div style="font-size:18px; font-weight:bold;">18 July 1998</div>
+      <div style="font-size:12px;">1998-07-18</div>
+    </div>
+  </div>
+
+  <div style="margin-top:20px;">
+    <p><strong>Place of Birth:</strong> Mumbai, India</p>
+    <p><strong>Father:</strong> Ramesh Gupta</p>
+    <p><strong>Mother:</strong> Sita Gupta</p>
+    <p><strong>Registration Date:</strong> 25 July 1998</p>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Utility Bill – Arjun Verma</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#eef2f7; font-family: Arial, sans-serif; padding: 40px 20px; }
+    .bill { width:760px; background:white; margin:0 auto; box-shadow:0 4px 20px rgba(0,0,0,0.15); }
+    .header { background:#003580; color:white; padding:24px 36px; display:flex; justify-content:space-between; align-items:center; }
+    .header .logo { font-size:22px; font-weight:900; letter-spacing:1px; }
+    .header .logo span { color:#f0c040; }
+    .header .bill-title { text-align:right; }
+    .header .bill-title h2 { font-size:18px; font-weight:700; }
+    .header .bill-title p { font-size:12px; opacity:0.8; margin-top:3px; }
+    .orange-bar { background:#f0c040; height:5px; }
+    .account-section { background:#f8f9fb; padding:20px 36px; display:flex; justify-content:space-between; border-bottom:1px solid #e0e6f0; }
+    .account-section .label { font-size:10px; color:#888; text-transform:uppercase; letter-spacing:1px; }
+    .account-section .value { font-size:15px; font-weight:700; color:#003580; margin-top:2px; }
+    .address-section { padding:24px 36px; display:grid; grid-template-columns:1fr 1fr; gap:24px; border-bottom:1px solid #e0e6f0; }
+    .address-box { }
+    .address-box .section-label { font-size:10px; color:#888; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+    .address-box .name { font-size:16px; font-weight:700; color:#111; }
+    .address-box .addr { font-size:14px; color:#333; line-height:1.7; margin-top:4px; }
+    .highlight-box { background:#e8f0fe; border-left:4px solid #003580; padding:10px 14px; margin:4px 0 0; border-radius:0 4px 4px 0; }
+    .highlight-box .hl-label { font-size:9px; color:#003580; text-transform:uppercase; letter-spacing:1px; font-weight:700; }
+    .highlight-box .hl-value { font-size:15px; font-weight:700; color:#003580; margin-top:2px; }
+    .charges-table { width:100%; border-collapse:collapse; margin:0; }
+    .charges-table th { background:#003580; color:white; padding:10px 36px; text-align:left; font-size:12px; letter-spacing:1px; }
+    .charges-table td { padding:10px 36px; font-size:14px; border-bottom:1px solid #f0f0f0; }
+    .charges-table tr:last-child td { border-bottom:none; }
+    .charges-table .amt { text-align:right; font-weight:600; }
+    .total-row { background:#f8f9fb; }
+    .total-row td { font-weight:700; font-size:15px; color:#003580; padding:14px 36px; border-top:2px solid #003580; }
+    .footer-section { padding:20px 36px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid #e0e6f0; background:#f8f9fb; }
+    .footer-section .due { }
+    .footer-section .due .d-label { font-size:10px; color:#888; text-transform:uppercase; letter-spacing:1px; }
+    .footer-section .due .d-date { font-size:18px; font-weight:700; color:#c00; margin-top:2px; }
+    .footer-section .barcode { font-family:monospace; font-size:11px; color:#bbb; text-align:right; }
+    .bill-footer { background:#003580; color:rgba(255,255,255,0.7); padding:12px 36px; font-size:11px; text-align:center; }
+    .print-instructions { text-align:center; font-family:Arial,sans-serif; font-size:13px; color:#555; margin-bottom:16px; background:#fff3cd; border:1px solid #ffc107; border-radius:6px; padding:12px; max-width:760px; margin-left:auto; margin-right:auto; }
+    .print-btn { display:block; margin:0 auto 20px; padding:10px 36px; background:#003580; color:white; border:none; border-radius:4px; font-size:14px; cursor:pointer; }
+    @media print { body{background:white;padding:0;} .print-btn,.print-instructions{display:none;} .bill{box-shadow:none;width:100%;} }
+  </style>
+</head>
+<body>
+
+<div class="print-instructions">
+  <strong>📄 Save as PDF:</strong> Click button below or Ctrl+P → <strong>"Save as PDF"</strong> → Upload to IASW app (Address Update for C002 Arjun Verma)
+</div>
+<button class="print-btn" onclick="window.print()">🖨️ Save as PDF</button>
+
+<div class="bill">
+  <div class="header">
+    <div class="logo">TATA <span>POWER</span><br/><span style="font-size:11px;font-weight:400;opacity:0.8;">Electricity Distribution</span></div>
+    <div class="bill-title">
+      <h2>Electricity Bill</h2>
+      <p>Bill Date: 15 March 2024 &nbsp;|&nbsp; Bill No: TP/KOL/2024/38291</p>
+    </div>
+  </div>
+  <div class="orange-bar"></div>
+
+  <div class="account-section">
+    <div>
+      <div class="label">Consumer Number</div>
+      <div class="value">KOL-00294-77231</div>
+    </div>
+    <div>
+      <div class="label">Meter Number</div>
+      <div class="value">MT-4492817</div>
+    </div>
+    <div>
+      <div class="label">Billing Period</div>
+      <div class="value">01 Feb – 28 Feb 2024</div>
+    </div>
+    <div>
+      <div class="label">Tariff Category</div>
+      <div class="value">Domestic (LT-1)</div>
+    </div>
+  </div>
+
+  <div class="address-section">
+    <div class="address-box">
+      <div class="section-label">Consumer Name & Address</div>
+      <div class="name">Arjun Verma</div>
+      <div class="addr">45 Park Street<br/>Kolkata – 700 016<br/>West Bengal, India</div>
+
+      <div class="highlight-box" style="margin-top:12px;">
+        <div class="hl-label">Registered Address (New Address)</div>
+        <div class="hl-value">45 Park Street, Kolkata 700016</div>
+      </div>
+    </div>
+    <div class="address-box">
+      <div class="section-label">Connection Details</div>
+      <div class="addr" style="line-height:2;">
+        <strong>Contract Demand:</strong> 3 kW<br/>
+        <strong>Connection Type:</strong> Single Phase<br/>
+        <strong>Sanctioned Load:</strong> 3 kW<br/>
+        <strong>Connected Load:</strong> 2.8 kW
+      </div>
+    </div>
+  </div>
+
+  <table class="charges-table">
+    <thead>
+      <tr><th>Description</th><th>Units / Details</th><th class="amt">Amount (₹)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Energy Charges (0–100 units)</td><td>100 units @ ₹3.25</td><td class="amt">325.00</td></tr>
+      <tr><td>Energy Charges (101–300 units)</td><td>145 units @ ₹5.50</td><td class="amt">797.50</td></tr>
+      <tr><td>Fixed / Demand Charges</td><td>3 kW @ ₹80.00</td><td class="amt">240.00</td></tr>
+      <tr><td>Electricity Duty</td><td>@ 6%</td><td class="amt">81.75</td></tr>
+      <tr><td>Municipal Tax</td><td>@ 2%</td><td class="amt">27.25</td></tr>
+      <tr class="total-row"><td colspan="2"><strong>Total Amount Payable</strong></td><td class="amt">₹ 1,471.50</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer-section">
+    <div class="due">
+      <div class="d-label">Due Date</div>
+      <div class="d-date">31 March 2024</div>
+    </div>
+    <div>
+      <div style="font-size:10px;color:#888;">Pay via NEFT / UPI / Net Banking</div>
+      <div style="font-size:13px;font-weight:600;color:#003580;margin-top:3px;">UPI: tatapowerkolkata@upi</div>
+    </div>
+    <div class="barcode">
+      |||| ||| |||| || ||| ||||<br/>
+      TP2024KOL38291<br/>
+      ||||| || ||||| |||||
+    </div>
+  </div>
+
+  <div class="bill-footer">
+    Tata Power Company Limited, Registered Office: Bombay House, 24 Homi Mody Street, Mumbai 400001 | CIN: L28920MH1919PLC000567
+  </div>
+</div>
+
+</body>
+</html>

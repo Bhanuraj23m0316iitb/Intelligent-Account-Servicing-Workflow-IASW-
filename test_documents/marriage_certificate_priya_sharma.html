@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marriage Certificate – Priya Sharma & Rahul Mehta</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f0ebe0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      font-family: 'EB Garamond', Georgia, serif;
+    }
+
+    .certificate {
+      width: 860px;
+      background: #fffef8;
+      border: 12px solid transparent;
+      border-image: repeating-linear-gradient(
+        45deg,
+        #8b6914 0px, #8b6914 4px,
+        #c9a94a 4px, #c9a94a 8px,
+        #8b6914 8px, #8b6914 12px
+      ) 12;
+      padding: 0;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+      position: relative;
+    }
+
+    .outer-border {
+      border: 4px solid #8b6914;
+      margin: 10px;
+    }
+
+    .inner-border {
+      border: 2px solid #c9a94a;
+      margin: 8px;
+      padding: 40px 50px 36px;
+      position: relative;
+    }
+
+    .corner {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      font-size: 36px;
+      text-align: center;
+      color: #8b6914;
+    }
+    .corner.tl { top: -4px; left: -4px; }
+    .corner.tr { top: -4px; right: -4px; }
+    .corner.bl { bottom: -4px; left: -4px; }
+    .corner.br { bottom: -4px; right: -4px; }
+
+    .gov-header { text-align: center; margin-bottom: 8px; }
+    .gov-header .emblem { font-size: 52px; }
+    .gov-header .country {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #555;
+      text-transform: uppercase;
+    }
+    .gov-header .department {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #777;
+    }
+
+    .divider-gold {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .divider-gold::before,
+    .divider-gold::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #c9a94a, #8b6914, #c9a94a, transparent);
+    }
+
+    .title-block { text-align: center; margin: 10px 0 18px; }
+    .title-block h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      color: #5a3e00;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .declaration {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      text-align: center;
+      margin: 18px 0;
+      font-style: italic;
+    }
+
+    .names-block {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 18px 0;
+    }
+
+    .person { text-align: center; flex: 1; }
+    .person .name {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #5a3e00;
+    }
+
+    .ampersand {
+      font-size: 48px;
+      color: #c9a94a;
+    }
+
+    .name-change-box {
+      background: #fdf8ee;
+      border: 1px solid #c9a94a;
+      padding: 14px 20px;
+      margin: 16px 0;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .detail-item { border-bottom: 1px solid #e8d9b0; }
+
+    .signatures-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-top: 22px;
+    }
+
+    .sig-block { text-align: center; }
+
+    .sig-script {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: #1a3a6b;
+      height: 36px;
+    }
+
+    .sig-line {
+      border-top: 1px solid #888;
+      margin-bottom: 5px;
+    }
+
+    .seal-area {
+      position: absolute;
+      right: 60px;
+      bottom: 70px;
+    }
+
+    .reg-stamp {
+      position: absolute;
+      left: 56px;
+      bottom: 68px;
+      border: 2px solid rgba(180, 0, 0, 0.5);
+      padding: 6px 10px;
+      transform: rotate(-8deg);
+    }
+
+    .print-btn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 40px;
+      background: #5a3e00;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media print {
+      .print-btn { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<button class="print-btn" onclick="window.print()">🖨️ Save as PDF</button>
+
+<div class="certificate">
+  <div class="outer-border">
+    <div class="inner-border">
+
+      <div class="gov-header">
+        <div class="emblem">⚖️</div>
+        <div class="country">Government of India</div>
+      </div>
+
+      <div class="title-block">
+        <h1>Certificate of Marriage</h1>
+      </div>
+
+      <div class="declaration">
+        This is to certify that the following persons have been lawfully joined in marriage.
+      </div>
+
+      <div class="names-block">
+        <div class="person">
+          <div class="name">Priya Sharma</div>
+        </div>
+        <div class="ampersand">&amp;</div>
+        <div class="person">
+          <div class="name">Rahul Mehta</div>
+        </div>
+      </div>
+
+      <div class="name-change-box">
+        <div>Priya Sharma</div>
+        <div>→</div>
+        <div>Priya Sharma</div>
+      </div>
+
+      <div class="details-grid">
+        <div class="detail-item">14th February, 2024</div>
+        <div class="detail-item">Mumbai</div>
+        <div class="detail-item">20th February, 2024</div>
+      </div>
+
+      <div class="signatures-row">
+        <div class="sig-block">
+          <div class="sig-script">Priya Sharma</div>
+          <div class="sig-line"></div>
+          <div>Priya Sharma</div>
+        </div>
+        <div class="sig-block">
+          <div class="sig-script">R. Mehta</div>
+          <div class="sig-line"></div>
+          <div>Rahul Mehta</div>
+        </div>
+        <div class="sig-block">
+          <div class="sig-script">D.K. Joshi</div>
+          <div class="sig-line"></div>
+          <div>Registrar</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
