@@ -1,4 +1,4 @@
-## IASW — Intelligent Account Servicing Workflow
+## IASW: Intelligent Account Servicing Workflow
 
 An AI-powered, agentic workflow system designed to automate and streamline banking account change request verification while ensuring strict regulatory compliance through a Human-in-the-Loop (HITL) approval mechanism.
 
@@ -399,7 +399,7 @@ Staff Intake (Frontend)
 
 ## Resilience & Retry Strategy
 
-### Agent 2 — Document Processor (2 iteration types)
+### Agent 2: Document Processor (2 iteration types)
 
 **Type 1: Exponential-backoff retry for Azure OpenAI transient errors**
 ```
@@ -417,7 +417,7 @@ Parse fails → send broken output back to GPT-4o
              → FAILED only if healing also fails
 ```
 
-### Agent 4 — Summary Agent (1 iteration type)
+### Agent 4: Summary Agent (1 iteration type)
 ```
 Attempt 1 → immediate
 Attempt 2 → wait 2 seconds
