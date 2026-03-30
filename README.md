@@ -1,6 +1,8 @@
 ## IASW — Intelligent Account Servicing Workflow
 
-> AI-powered banking account change request verification with mandatory Human-in-the-Loop (HITL) Checker approval before any core-banking update.
+An AI-powered, agentic workflow system designed to automate and streamline banking account change request verification while ensuring strict regulatory compliance through a Human-in-the-Loop (HITL) approval mechanism.
+
+This project replaces the traditional manual “Maker–Checker” process with an intelligent AI-driven pipeline that performs document processing, data extraction, validation, and confidence scoring, while preserving the human Checker as the final authority before any core banking update is executed
 
 ---
 
