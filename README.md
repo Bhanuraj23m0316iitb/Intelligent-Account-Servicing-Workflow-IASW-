@@ -504,21 +504,6 @@ grep '"level":"ERROR"' backend/logs/iasw.jsonl
 curl http://localhost:8000/api/rps/transactions
 ```
 
----
-
-## Environment Variables
-
-| Variable | Required | Description |
-|---|---|---|
-| `AZURE_OPENAI_API_KEY` | ✓ | Azure OpenAI resource key |
-| `AZURE_OPENAI_ENDPOINT` | ✓ | e.g. `https://myresource.openai.azure.com/` |
-| `AZURE_OPENAI_DEPLOYMENT` | ✓ | GPT-4o deployment name in Azure Studio |
-| `AZURE_OPENAI_API_VERSION` | ✓ | e.g. `2024-12-01-preview` |
-
-Place in `iasw/.env` AND `iasw/backend/.env` (the backend reads from its own directory at startup).
-
----
-
 ## Assumptions & Known Limitations
 
 1. **In-memory RPS** — Customer records reset on backend restart. Use `POST /api/admin/reset-rps` anytime during a session, or add customers to `config.py` → `RPS_CUSTOMERS` to make them permanent
@@ -530,4 +515,4 @@ Place in `iasw/.env` AND `iasw/backend/.env` (the backend reads from its own dir
 
 ---
 
-*IASW v1.0 — Intelligent Account Servicing Workflow · Azure OpenAI (GPT-4o) Edition*
+
